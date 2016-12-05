@@ -4,7 +4,6 @@ import io.runidle.async.channel.feature.idem.IdempotentHandler;
 import io.runidle.async.channel.message.ChannelInternalRequestMessage;
 import io.runidle.async.channel.pipe.ChannelPipeInterceptor;
 
-
 /**
  * For S2BPipe,
  * (1) No Retry

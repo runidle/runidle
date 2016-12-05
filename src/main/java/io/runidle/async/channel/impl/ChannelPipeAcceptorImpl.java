@@ -18,11 +18,6 @@ public class ChannelPipeAcceptorImpl implements ChannelPipeAcceptor {
     }
 
     @Override
-    public <T, R> void responseTimeout(ChannelInternalRequestMessage<T, R> message) {
-        this.srcChannel.write(DefaultMessageType.Timeout, message);
-    }
-
-    @Override
     public <T, R> void response(ChannelInternalRequestMessage<T, R> message) {
         this.channelPipeInterceptor.beforeResponse(message);
         this.srcChannel.write(DefaultMessageType.Response, message);

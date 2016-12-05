@@ -15,7 +15,8 @@ public class Timeout extends ChannelMessageFeature {
                 .schedule()
                 .delay(timeoutMs)
                 .onTime(() -> {
-                    channelMessage.channelPipe().acceptor().responseTimeout(channelMessage);
+                    channelMessage.fail(TimeoutException.INSTANCE.getMessage(),
+                            TimeoutException.INSTANCE);
                 });
     }
 

@@ -68,11 +68,6 @@ public abstract class AbstractChannel<C extends AbstractChannel<C>> implements
                 (messageType1, message) -> {
                     message.channelPipe().sender().handleResponse(message);
                 });
-        //todo: for some channel, it does not support Timeout
-        this.messageBox.<ChannelInternalRequestMessage>handler(DefaultMessageType.Timeout,
-                (messageType1, message) -> {
-                    message.channelPipe().sender().handleTimeout(message);
-                });
 
         this.messageBox.start();
         return (C) this;

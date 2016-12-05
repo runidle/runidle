@@ -34,11 +34,6 @@ public class ChannelPipeSenderImpl implements ChannelPipeSender {
     }
 
     @Override
-    public <T, R> void handleTimeout(ChannelInternalRequestMessage<T, R> message) {
-        this.channelPipeInterceptor.wrapHandleResponse(message);
-    }
-
-    @Override
     public String toString() {
         return "Sender Destination Channel: " + (this.destChannel == null ? "null" : this.destChannel.channelConfig().getName());
     }
